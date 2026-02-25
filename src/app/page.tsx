@@ -24,11 +24,17 @@ export default function Home() {
 
       <Storyboard phases={data.phases} />
 
-      <Capabilities capabilities={data.capabilities} />
+      <Capabilities
+        title={data.sections.capabilities.title}
+        items={data.sections.capabilities.items}
+      />
 
-      <Architecture architecture={data.architecture} />
+      <Architecture
+        title={data.sections.architecture.title}
+        layers={data.sections.architecture.layers}
+      />
 
-      <Governance governance={data.governance} />
+      <Governance governance={data.sections.governance} />
 
       <footer className="py-12 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">

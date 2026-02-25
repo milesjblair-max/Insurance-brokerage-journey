@@ -36,17 +36,19 @@ export interface Step {
     dataIn: string[];
     dataOut: string[];
     artifacts: Artifact[];
+    tags: string[];
 }
 
 export interface Phase {
     id: string;
     title: string;
+    summary: string;
     steps: Step[];
 }
 
 export interface Capability {
     title: string;
-    description: string;
+    bullets: string[];
 }
 
 export interface Layer {
@@ -55,12 +57,26 @@ export interface Layer {
 }
 
 export interface Architecture {
+    title: string;
     layers: Layer[];
 }
 
 export interface Governance {
     title: string;
-    description: string;
+    bullets: string[];
+}
+
+export interface ClientAccount {
+    externalId: string;
+    name: string;
+    type: string;
+    region: string;
+    children?: string[];
+}
+
+export interface ClientModel {
+    note: string;
+    accounts: ClientAccount[];
 }
 
 export interface StoryboardData {
@@ -68,8 +84,14 @@ export interface StoryboardData {
     hero: Hero;
     kpis: KPI[];
     personas: Persona[];
+    clientModel: ClientModel;
     phases: Phase[];
-    capabilities: Capability[];
-    architecture: Architecture;
-    governance: Governance[];
+    sections: {
+        capabilities: {
+            title: string;
+            items: Capability[];
+        };
+        architecture: Architecture;
+        governance: Governance;
+    };
 }
