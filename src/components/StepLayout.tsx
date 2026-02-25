@@ -33,6 +33,15 @@ const ALL_PHASES = [
     { label: 'Execute', stepStart: 7 },
 ];
 
+// Helper to handle basePath for images
+const getAssetPath = (path: string) => {
+    const basePath = '/Insurance-brokerage-journey';
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    return `${basePath}${cleanPath}`;
+};
+
 const StepLayout: React.FC<StepLayoutProps> = ({
     currentStep, totalSteps, phaseTitle, title, description,
     whatHappens, soWhat, logos = [], prevLink, nextLink,
@@ -92,13 +101,10 @@ const StepLayout: React.FC<StepLayoutProps> = ({
                         <div className="logo-strip">
                             {logos.map((src, i) => (
                                 <div key={i} className="logo-chip">
-                                    <Image
-                                        src={src}
+                                    <img
+                                        src={getAssetPath(src)}
                                         alt={LOGO_LABELS[src] || 'Platform logo'}
-                                        height={20}
-                                        width={80}
-                                        style={{ height: 20, width: 'auto', objectFit: 'contain' }}
-                                        unoptimized
+                                        style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
                                     />
                                     <span style={{ fontSize: 12, fontWeight: 600, color: '#444', whiteSpace: 'nowrap' }}>
                                         {LOGO_LABELS[src] || ''}

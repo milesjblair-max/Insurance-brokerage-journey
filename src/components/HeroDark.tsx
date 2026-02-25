@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Persona, MetricData } from '@/lib/types';
 
 interface HeroDarkProps {
@@ -8,18 +7,27 @@ interface HeroDarkProps {
     metrics: MetricData;
 }
 
+// Helper to handle basePath for images
+const getAssetPath = (path: string) => {
+    const basePath = '/Insurance-brokerage-journey';
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    return `${basePath}${cleanPath}`;
+};
+
 const HeroDark: React.FC<HeroDarkProps> = ({ personas, metrics }) => (
-    <main className="cover-page">
+    <main className="cover-page" style={{ background: '#0F0F12' }}>
         {/* ambient glow */}
         <div className="cover-glow" aria-hidden="true" />
 
         {/* ── Hero ── */}
-        <section className="cover-hero">
-            <p className="t-label fade-up fade-up-1" style={{ color: 'rgba(161,0,255,0.85)', marginBottom: 24 }}>
+        <section className="cover-hero" style={{ paddingBottom: '40px' }}>
+            <p className="t-label fade-up fade-up-1" style={{ color: 'rgba(161,0,255,0.85)', marginBottom: 20 }}>
                 Agentic AI &nbsp;·&nbsp; Global Insurance Broking
             </p>
 
-            <h1 className="t-hero fade-up fade-up-2" style={{ marginBottom: 24 }}>
+            <h1 className="t-hero fade-up fade-up-2" style={{ marginBottom: 20 }}>
                 From First Contact to Bound Risk —<br />
                 <span style={{ color: 'rgba(255,255,255,0.4)' }}>in One Intelligent Conversation</span>
             </h1>
@@ -30,20 +38,23 @@ const HeroDark: React.FC<HeroDarkProps> = ({ personas, metrics }) => (
         </section>
 
         {/* ── Persona Cards ── */}
-        <div className="cover-personas fade-up fade-up-4">
+        <div className="cover-personas fade-up fade-up-4" style={{ marginBottom: '40px' }}>
             {personas.map(p => {
-                const isLogo = p.avatar.includes('aurelius');
+                const isLogo = p.name.toLowerCase().includes('atlas') || p.avatar.includes('atlas');
                 return (
                     <div key={p.id} className="persona-card">
                         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
                             <div className="persona-avatar-wrap">
-                                <Image
-                                    src={p.avatar}
+                                <img
+                                    src={getAssetPath(p.avatar)}
                                     alt={p.name}
-                                    width={60}
-                                    height={60}
-                                    style={{ objectFit: isLogo ? 'contain' : 'cover', padding: isLogo ? 6 : 0 }}
-                                    unoptimized
+                                    style={{
+                                        width: '60px',
+                                        height: '60px',
+                                        objectFit: isLogo ? 'contain' : 'cover',
+                                        padding: isLogo ? '8px' : '0',
+                                        borderRadius: isLogo ? '0' : '50%'
+                                    }}
                                 />
                             </div>
                             <div>
@@ -66,23 +77,31 @@ const HeroDark: React.FC<HeroDarkProps> = ({ personas, metrics }) => (
             })}
         </div>
 
-        {/* ── Metrics ── */}
-        <div className="metrics-row fade-up fade-up-5" style={{ margin: '32px auto 0' }}>
-            <div className="metric-cell">
-                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.steps.split(' ')[0]}</span>
-                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Steps</span>
-            </div>
-            <div className="metric-cell">
-                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.phases.split(' ')[0]}</span>
-                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Phases</span>
-            </div>
-            <div className="metric-cell">
-                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.placement}</span>
-                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Program</span>
-            </div>
-            <div className="metric-cell">
-                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.prep}</span>
-                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Broker Prep</span>
+        {/* ── Metrics Row ── */}
+        <div className="fade-up fade-up-5" style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 48px' }}>
+            <div className="metrics-grid">
+                <div className="metric-item">
+                    <span className="metric-num">{metrics.steps.split(' ')[0]}</span>
+                    <span className="metric-label">STEPS</span>
+                </div>
+                <div className="metric-item">
+                    <span className="metric-num">{metrics.phases.split(' ')[0]}</span>
+                    <span className="metric-label">PHASES</span>
+                </div>
+                <div className="metric-item">
+                    <div>
+                        <span className="metric-num" style={{ fontSize: '42px' }}>$75M+</span>
+                        <div className="metric-text">Program Placement</div>
+                    </div>
+                    <span className="metric-label">PROGRAM</span>
+                </div>
+                <div className="metric-item">
+                    <div>
+                        <span className="metric-num" style={{ fontSize: '42px' }}>&lt; 15 min</span>
+                        <div className="metric-text">Broker Prep Time</div>
+                    </div>
+                    <span className="metric-label">BROKER PREP</span>
+                </div>
             </div>
         </div>
 

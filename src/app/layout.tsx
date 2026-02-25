@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Atlas Global Enterprise | Agentic Insurance Storyboard",
-  description: "Executive storytelling journey demonstrating how agentic AI transforms global insurance broking with governed human oversight.",
+  description: "Executive storytelling journey demonstrating how agentic AI transforms global insurance broking for multinational enterprises.",
 };
 
 export default function RootLayout({
