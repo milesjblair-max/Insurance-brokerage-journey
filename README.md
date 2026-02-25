@@ -1,12 +1,12 @@
-# Howden Agentic AI Storyboard
+# Executive Agentic AI Storyboard
 
-A premium, responsive, data-driven storyboard website for Howden Broking Group, showcasing the end-to-end journey of Agentic AI in insurance broking.
+A premium, responsive, data-driven storyboard website showcasing the end-to-end journey of Agentic AI in global insurance broking. This demo is designed to be client-agnostic and easily reusable for any multinational insurance brokerage group.
 
 ## Features
 - **Client-Agnostic**: All content is driven by `/data/storyboard.json`.
 - **Responsive Design**: Optimized for phone, tablet, laptop, and large desktop screens.
 - **Premium Aesthetic**: Dark theme with purple accents, subtle gradients, and glassmorphism.
-- **Interactive Storyboard**: 12-step flow with filters for Human-in-the-loop and Systems visibility.
+- **Interactive Storyboard**: High-fidelity storytelling flow with clear strategic outcomes.
 - **Architecture & Governance**: Visual representation of the agentic stack and safety guardrails.
 
 ## Tech Stack

@@ -8,7 +8,7 @@
     "subtitle": "This interactive journey demonstrates how agentic AI transforms global insurance broking — connecting client engagement, broking intelligence, and execution workflows into one orchestrated experience."
   },
   "metrics": {
-    "steps": "12 Orchestrated Steps",
+    "steps": "16 Orchestrated Steps",
     "phases": "4 Journey Phases",
     "placement": "$75M+ Program Placement",
     "prep": "< 15 min Broker Prep Time"
@@ -16,12 +16,13 @@
   "personas": [
     {
       "id": "client",
-      "name": "Aurelius Global Industries",
-      "role": "Global Multinational Enterprise",
-      "avatar": "/assets/logos/aurelius.png",
+      "name": "Atlas",
+      "role": "Multinational Enterprise",
+      "avatar": "/assets/logos/atlas.png",
       "bullets": [
-        "Operates across 32 countries with complex commercial risk exposure",
-        "Spanning marine, cyber, property, and specialty liability lines"
+        "Diversified industrial & advanced manufacturing",
+        "Ops in 30+ countries, ~$18B Revenue",
+        "Complex risk: Marine, Property, Cyber, Liability"
       ]
     },
     {
@@ -38,80 +39,69 @@
   "phases": [
     {
       "id": "phase-1",
-      "title": "Discover",
-      "summary": "Intelligent Lead & Relationship Insight",
+      "title": "Opportunity Identification",
+      "summary": "Intelligent Opportunity Identification",
       "steps": [
         {
           "id": "step-1",
-          "title": "AI surfaces Aurelius as strategic account opportunity",
-          "summary": "Agentforce identifies high-potential opportunities by analyzing global revenue footprints and exposure concentrations.",
+          "title": "AI surfaces Atlas as strategic account opportunity",
+          "summary": "High-potential leads are scored and prioritised on the Relationship Manager homepage.",
           "whatHappens": [
-            "Identifies global revenue footprint",
-            "Highlights exposure concentration in APAC",
-            "Flags expiring marine & cyber programs",
-            "Agentforce explains lead prioritization logic"
+            "AI analyzes global footprint & risk profile",
+            "Scores opportunities based on renewal cycles",
+            "Prioritises Atlas on the Salesforce RM homepage",
+            "RM initiates contact with client stakeholders"
           ],
           "soWhat": [
-            "Directs broker focus to highest-value renewals",
-            "Automated opportunity qualification",
-            "Early identification of coverage gaps",
-            "Reduced research time for lead brokers"
+            "Broker focus directed to high-value opportunities",
+            "Eliminates manual lead research & vetting",
+            "Data-driven prioritization of global pipeline",
+            "Instant awareness of strategic account potential"
           ],
           "logos": [
-            "/assets/logos/agentforce.png",
-            "/assets/logos/datacloud.jpg"
+            "/assets/logos/agentforce.png"
           ]
+        },
+        {
+          "id": "step-2",
+          "title": "Customer interest confirmed",
+          "summary": "Atlas confirms interest via email and provides supporting documentation.",
+          "whatHappens": [
+            "Customer responds via email with intent",
+            "Supporting risk documents are shared",
+            "Salesforce CRM tracks interaction history",
+            "System prepares for autonomous processing"
+          ],
+          "soWhat": [
+            "Seamless transition from lead to engagement",
+            "High-fidelity capture of client data",
+            "Standardized intake of risk documentation",
+            "Audit trail of initial client contact"
+          ],
+          "logos": []
         }
       ]
     },
     {
       "id": "phase-2",
-      "title": "Onboard",
-      "summary": "Guided Global Onboarding",
-      "steps": [
-        {
-          "id": "step-2",
-          "title": "OmniStudio guided intake",
-          "summary": "Streamlined onboarding through multi-entity hierarchy capture and automated screening.",
-          "whatHappens": [
-            "Captures parent: Aurelius Global Industries",
-            "Maps subsidiaries across UK, US, Singapore",
-            "Runs automated KYC and Sanctions screening",
-            "Enriches data via D&B and external APIs"
-          ],
-          "soWhat": [
-            "Ensures 100% compliance early in the cycle",
-            "Unified view of global entity relationships",
-            "Drastic reduction in manual onboarding tasks",
-            "Clean data baseline for downstream placement"
-          ],
-          "logos": [
-            "/assets/logos/fsc.png",
-            "/assets/logos/datacloud.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "phase-3",
-      "title": "Prepare & Advise",
-      "summary": "Broker Preparation and Meeting Intelligence",
+      "title": "Account Creation",
+      "summary": "Autonomous Account Creation & Context",
       "steps": [
         {
           "id": "step-3",
-          "title": "FSC 360 Account View & Summary",
-          "summary": "Holistic view of the global program with AI-generated briefing notes.",
+          "title": "Autonomous record orchestration",
+          "summary": "AI analyses emails + attachments to create account and opportunity records automatically.",
           "whatHappens": [
-            "Rolls up global policies and year claims",
-            "Surfaces active placements and revenue by region",
-            "Agentforce generates account summary",
-            "Highlights market risk alerts and x-sell recommendations"
+            "Agent 1 analyses email and risk attachments",
+            "Automatically creates Account and Opportunity",
+            "Generates 360° view of Atlas global hierarchy",
+            "Initiates automated onboarding screening"
           ],
           "soWhat": [
-            "Broker prep time reduced from hours to minutes",
-            "Proactive identification of renewal vulnerabilities",
-            "Data-driven client negotiation strategy",
-            "Maximized cross-sell opportunity awareness"
+            "Drastic reduction in manual CRM data entry",
+            "Unified view of complex global entity structure",
+            "Compliance checks started early in cycle",
+            "Higher data accuracy from automated ingestion"
           ],
           "logos": [
             "/assets/logos/agentforce.png",
@@ -120,48 +110,136 @@
         },
         {
           "id": "step-4",
-          "title": "Pre-Meeting Toolkit",
-          "summary": "Assembly of risk insights and capacity recommendations for client engagement.",
+          "title": "Intelligent cross-border hierarchy",
+          "summary": "Surfaces related accounts and products across hierarchies to identify cross-sell opportunities.",
           "whatHappens": [
-            "Visualizes risk exposure heatmap",
-            "Surfaces real-time market appetite insights",
-            "Provides intelligent capacity recommendations",
-            "Develops optimal carrier strategy"
+            "Maps parents & subsidiaries across EMEA, APAC, NA",
+            "Surfaces similar operating models via industry tags",
+            "Displays active products across related accounts",
+            "Identifies natural cross-sell gaps for Atlas"
           ],
           "soWhat": [
-            "High-impact visual risk reporting for clients",
-            "Placement strategy aligned with market capacity",
-            "Differentiated broker advisory experience",
-            "Higher win-rates through intelligent insight"
+            "Maximum awareness of global placement gaps",
+            "Intelligence-led account expansion strategy",
+            "Lower administrative burden of mapping groups",
+            "Enhanced advisory value to the global risk manager"
           ],
-          "logos": []
+          "logos": [
+            "/assets/logos/datacloud.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-3",
+      "title": "Meeting Preparation",
+      "summary": "Strategic Meeting Preparation",
+      "steps": [
+        {
+          "id": "step-5",
+          "title": "AI-powered briefing briefing",
+          "summary": "Generates a comprehensive summary including risk insights and commercial positioning.",
+          "whatHappens": [
+            "RM schedules meeting via Quick Action",
+            "AI generates account and risk insights summary",
+            "Highlights cross-sell & renewal opportunities",
+            "Provides commercial positioning guidance"
+          ],
+          "soWhat": [
+            "Broker prep time reduced from hours to seconds",
+            "Highly personalized meeting agenda",
+            "Strategy-led negotiation vs process-led",
+            "Consistent advisory quality across the firm"
+          ],
+          "logos": [
+            "/assets/logos/agentforce.png"
+          ]
+        },
+        {
+          "id": "step-6",
+          "title": "Client meeting & mobile orchestration",
+          "summary": "RM holds client meeting and updates CRM in real-time using voice.",
+          "whatHappens": [
+            "RM holds strategic meeting with Atlas stakeholders",
+            "Customer agrees to expand product coverage",
+            "RM updates Opportunity via mobile voice component",
+            "Real-time CRM accuracy and task assignment"
+          ],
+          "soWhat": [
+            "Instant conversion of meeting notes to data",
+            "Eliminates end-of-day admin backlog",
+            "High-fidelity capture of client intent",
+            "Direct path from advice to market execution"
+          ],
+          "logos": [
+            "/assets/logos/fsc.png"
+          ]
         }
       ]
     },
     {
       "id": "phase-4",
-      "title": "Execute",
-      "summary": "Voice-Enabled Execution",
+      "title": "Market Execution",
+      "summary": "Market Engagement & Quote Intelligence",
       "steps": [
         {
-          "id": "step-5",
-          "title": "Voice Agent logs meeting outcomes",
-          "summary": "Hands-free capture of complex placement instructions and back-office orchestration.",
+          "id": "step-7",
+          "title": "Automated RFQ & Quote Ingestion",
+          "summary": "Issues RFQs to panel and ingests carrier responses automatically.",
           "whatHappens": [
-            "Logs $12M Cyber Program Renewal",
-            "Triggers new Marine Excess Placement",
-            "Assigns tasks to London and Singapore desks",
-            "Updates global revenue model in real-time"
+            "RM issues RFQ to global insurer panel",
+            "Emails from carriers are ingested by Agent 2",
+            "Quote data is standardized into FSC records",
+            "Identifies exposure, premium, and wording details"
           ],
           "soWhat": [
-            "Eliminates admin backlog after client meetings",
-            "Instant global team orchestration",
-            "Seamless transition from advice to execution",
-            "High-fidelity capture of client sentiment"
+            "Unified view of all carrier responses",
+            "Removes friction from document comparison",
+            "Automated audit trail of market engagement",
+            "Speed to market enhanced by AI standardization"
           ],
           "logos": [
-            "/assets/logos/agentforce.png",
             "/assets/logos/fsc.png"
+          ]
+        },
+        {
+          "id": "step-8",
+          "title": "Intelligent Quote Analysis Agent",
+          "summary": "AI compares quotes across multiple variables and ranks recommendations.",
+          "whatHappens": [
+            "Compares premiums, limits, and exclusions",
+            "Reviews complex wording and conditions",
+            "Produces ranked recommendation with rationale",
+            "Highlights deviations from Atlas requirements"
+          ],
+          "soWhat": [
+            "Deep technical insight without manual analysis",
+            "Defensible selection logic for global client",
+            "Risk-weighted comparison beyond just price",
+            "Consistent assessment across diverse programs"
+          ],
+          "logos": [
+            "/assets/logos/agentforce.png"
+          ]
+        },
+        {
+          "id": "step-9",
+          "title": "Conversational priority adjustment",
+          "summary": "RM adjusts ranking priorities conversationally to match client-specific intent.",
+          "whatHappens": [
+            "RM requests 'favor coverage over commission'",
+            "AI performs dynamic re-ranking of options",
+            "Justifies recommendation based on client feedback",
+            "RM ready to present final data-backed advice"
+          ],
+          "soWhat": [
+            "Real-time agility during client discussions",
+            "Transparent decision-making process",
+            "Personalized outcome for the global риск manager",
+            "Empowers broker as high-value strategic advisor"
+          ],
+          "logos": [
+            "/assets/logos/agentforce.png"
           ]
         }
       ]

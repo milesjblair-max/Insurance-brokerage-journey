@@ -5,11 +5,10 @@ import Footer from '@/components/Footer';
 import { notFound } from 'next/navigation';
 
 const PHASE_NAV = [
-    { id: 'discover', title: 'Discover', href: '/journey/1' },
-    { id: 'onboard', title: 'Onboard', href: '/journey/2' },
-    { id: 'prepare', title: 'Prepare', href: '/journey/3' },
-    { id: 'advise', title: 'Advise', href: '/journey/4' },
-    { id: 'execute', title: 'Execute', href: '/journey/5' },
+    { id: 'identify', title: 'Identify', href: '/journey/1' },
+    { id: 'create', title: 'Create', href: '/journey/3' },
+    { id: 'prepare', title: 'Prepare', href: '/journey/5' },
+    { id: 'execute', title: 'Execute', href: '/journey/7' },
 ];
 
 export function generateStaticParams() {
@@ -42,8 +41,8 @@ export default async function StepPage({ params }: PageProps) {
         ...p,
         active: p.id === s.phaseId.replace('phase-', (() => {
             const map: Record<string, string> = {
-                'phase-1': 'discover',
-                'phase-2': 'onboard',
+                'phase-1': 'identify',
+                'phase-2': 'create',
                 'phase-3': 'prepare',
                 'phase-4': 'execute',
             };

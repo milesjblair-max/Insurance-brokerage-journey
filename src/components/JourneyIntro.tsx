@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 
 const bullets = [
-    'Unified Client 360 — Aurelius Global Industries',
-    'Intelligent Placement Orchestration across 32 territories',
-    'AI-Powered Broker Briefing & Meeting Prep',
-    'Voice-Driven CRM Execution & Revenue Attribution',
+    'Unified Client 360 — Atlas Global Enterprise',
+    'Intelligent Opportunity Scoring & Prioritization',
+    'Autonomous Account & Opportunity Orchestration',
+    'AI-Driven Market Quote Analysis & Ranking',
 ];
 
 const JourneyIntro: React.FC = () => (

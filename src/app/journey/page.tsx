@@ -8,11 +8,10 @@ export const metadata = {
 };
 
 const phases = [
-    { id: 'discover', title: 'Discover', href: '/journey/1' },
-    { id: 'onboard', title: 'Onboard', href: '/journey/2' },
-    { id: 'prepare', title: 'Prepare', href: '/journey/3' },
-    { id: 'advise', title: 'Advise', href: '/journey/4' },
-    { id: 'execute', title: 'Execute', href: '/journey/5' },
+    { id: 'identify', title: 'Identify', href: '/journey/1' },
+    { id: 'create', title: 'Create', href: '/journey/3' },
+    { id: 'prepare', title: 'Prepare', href: '/journey/5' },
+    { id: 'execute', title: 'Execute', href: '/journey/7' },
 ];
 
 export default function JourneyLanding() {

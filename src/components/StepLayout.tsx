@@ -22,16 +22,15 @@ const LOGO_LABELS: Record<string, string> = {
     '/assets/logos/fsc.png': 'Salesforce FSC',
     '/assets/logos/datacloud.jpg': 'Data Cloud',
     '/assets/logos/salesforce.png': 'Salesforce',
-    '/assets/logos/aurelius.png': 'Aurelius',
+    '/assets/logos/atlas.png': 'Atlas',
     '/assets/logos/accenture.png': 'Accenture',
 };
 
 const ALL_PHASES = [
-    { label: 'Discover', stepStart: 1 },
-    { label: 'Onboard', stepStart: 2 },
-    { label: 'Prepare', stepStart: 3 },
-    { label: 'Advise', stepStart: 4 },
-    { label: 'Execute', stepStart: 5 },
+    { label: 'Identify', stepStart: 1 },
+    { label: 'Create', stepStart: 3 },
+    { label: 'Prepare', stepStart: 5 },
+    { label: 'Execute', stepStart: 7 },
 ];
 
 const StepLayout: React.FC<StepLayoutProps> = ({

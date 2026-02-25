@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aurelius Global Industries | Agentic Insurance Storyboard",
+  title: "Atlas Global Enterprise | Agentic Insurance Storyboard",
   description: "Executive storytelling journey demonstrating how agentic AI transforms global insurance broking with governed human oversight.",
 };
 
