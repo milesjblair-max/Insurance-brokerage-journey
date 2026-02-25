@@ -18,10 +18,12 @@ interface StepLayoutProps {
 }
 
 const LOGO_LABELS: Record<string, string> = {
-    '/agent force logo.png': 'Agentforce',
-    '/financial services cloud logo.png': 'Salesforce FSC',
-    '/data cloud.jpg': 'Data Cloud',
-    '/Salesforce Logo.png': 'Salesforce',
+    '/assets/logos/agentforce.png': 'Agentforce',
+    '/assets/logos/fsc.png': 'Salesforce FSC',
+    '/assets/logos/datacloud.jpg': 'Data Cloud',
+    '/assets/logos/salesforce.png': 'Salesforce',
+    '/assets/logos/aurelius.png': 'Aurelius',
+    '/assets/logos/accenture.png': 'Accenture',
 };
 
 const ALL_PHASES = [

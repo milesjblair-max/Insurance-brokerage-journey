@@ -18,7 +18,7 @@
       "id": "client",
       "name": "Aurelius Global Industries",
       "role": "Global Multinational Enterprise",
-      "avatar": "/aurelius logo.png",
+      "avatar": "/assets/logos/aurelius.png",
       "bullets": [
         "Operates across 32 countries with complex commercial risk exposure",
         "Spanning marine, cyber, property, and specialty liability lines"
@@ -28,7 +28,7 @@
       "id": "broker",
       "name": "Mark Thurman",
       "role": "Lead Broker — Global Accounts",
-      "avatar": "/Mark Thurman.jpg",
+      "avatar": "/assets/avatars/mark_thurman.jpg",
       "bullets": [
         "Senior specialty broker responsible for structuring multinational programs",
         "Coordinating cross-border placements"
@@ -58,8 +58,8 @@
             "Reduced research time for lead brokers"
           ],
           "logos": [
-            "/agent force logo.png",
-            "/data cloud.jpg"
+            "/assets/logos/agentforce.png",
+            "/assets/logos/datacloud.jpg"
           ]
         }
       ]
@@ -86,8 +86,8 @@
             "Clean data baseline for downstream placement"
           ],
           "logos": [
-            "/financial services cloud logo.png",
-            "/data cloud.jpg"
+            "/assets/logos/fsc.png",
+            "/assets/logos/datacloud.jpg"
           ]
         }
       ]
@@ -114,8 +114,8 @@
             "Maximized cross-sell opportunity awareness"
           ],
           "logos": [
-            "/agent force logo.png",
-            "/financial services cloud logo.png"
+            "/assets/logos/agentforce.png",
+            "/assets/logos/fsc.png"
           ]
         },
         {
@@ -160,8 +160,8 @@
             "High-fidelity capture of client sentiment"
           ],
           "logos": [
-            "/agent force logo.png",
-            "/financial services cloud logo.png"
+            "/assets/logos/agentforce.png",
+            "/assets/logos/fsc.png"
           ]
         }
       ]

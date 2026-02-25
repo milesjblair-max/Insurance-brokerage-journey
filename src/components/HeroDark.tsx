@@ -1,36 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Persona, MetricData } from '@/lib/types';
 
-const personas = [
-    {
-        id: 'client',
-        name: 'Aurelius Global Industries',
-        role: 'Global Multinational Enterprise',
-        avatar: '/aurelius logo.png',
-        isLogo: true,
-        description:
-            'Aurelius Global Industries operates across 32 countries with complex commercial risk exposure spanning marine, cyber, property, and specialty liability lines.',
-    },
-    {
-        id: 'broker',
-        name: 'Mark Thurman',
-        role: 'Lead Broker — Global Accounts',
-        avatar: '/Mark Thurman.jpg',
-        isLogo: false,
-        description:
-            'Senior specialty broker responsible for structuring multinational programs and coordinating cross-border placements.',
-    },
-];
+interface HeroDarkProps {
+    personas: Persona[];
+    metrics: MetricData;
+}
 
-const metrics = [
-    { value: '12', label: 'Orchestrated Steps' },
-    { value: '4', label: 'Journey Phases' },
-    { value: '$75M+', label: 'Program Placement' },
-    { value: '< 15 min', label: 'Broker Prep Time' },
-];
-
-const HeroDark: React.FC = () => (
+const HeroDark: React.FC<HeroDarkProps> = ({ personas, metrics }) => (
     <main className="cover-page">
         {/* ambient glow */}
         <div className="cover-glow" aria-hidden="true" />
@@ -53,39 +31,59 @@ const HeroDark: React.FC = () => (
 
         {/* ── Persona Cards ── */}
         <div className="cover-personas fade-up fade-up-4">
-            {personas.map(p => (
-                <div key={p.id} className="persona-card">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                        <div className="persona-avatar-wrap">
-                            <Image
-                                src={p.avatar}
-                                alt={p.name}
-                                width={60}
-                                height={60}
-                                style={{ objectFit: p.isLogo ? 'contain' : 'cover', padding: p.isLogo ? 6 : 0 }}
-                                unoptimized
-                            />
+            {personas.map(p => {
+                const isLogo = p.avatar.includes('aurelius');
+                return (
+                    <div key={p.id} className="persona-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
+                            <div className="persona-avatar-wrap">
+                                <Image
+                                    src={p.avatar}
+                                    alt={p.name}
+                                    width={60}
+                                    height={60}
+                                    style={{ objectFit: isLogo ? 'contain' : 'cover', padding: isLogo ? 6 : 0 }}
+                                    unoptimized
+                                />
+                            </div>
+                            <div>
+                                <p className="t-label" style={{ color: 'rgba(161,0,255,0.8)', marginBottom: 4 }}>
+                                    {p.role}
+                                </p>
+                                <h3 className="t-h3" style={{ margin: 0 }}>{p.name}</h3>
+                            </div>
                         </div>
-                        <div>
-                            <p className="t-label" style={{ color: 'rgba(161,0,255,0.8)', marginBottom: 4 }}>
-                                {p.role}
-                            </p>
-                            <h3 className="t-h3" style={{ margin: 0 }}>{p.name}</h3>
-                        </div>
+                        <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
+                            {p.bullets.map((b, i) => (
+                                <li key={i} className="t-body-dark" style={{ fontSize: 14, marginBottom: 4, display: 'flex', gap: 8 }}>
+                                    <span style={{ color: 'var(--accent)' }}>•</span>
+                                    {b}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                    <p className="t-body-dark" style={{ fontSize: 15, margin: 0 }}>{p.description}</p>
-                </div>
-            ))}
+                );
+            })}
         </div>
 
         {/* ── Metrics ── */}
         <div className="metrics-row fade-up fade-up-5" style={{ margin: '32px auto 0' }}>
-            {metrics.map(m => (
-                <div key={m.label} className="metric-cell">
-                    <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{m.value}</span>
-                    <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>{m.label}</span>
-                </div>
-            ))}
+            <div className="metric-cell">
+                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.steps.split(' ')[0]}</span>
+                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Steps</span>
+            </div>
+            <div className="metric-cell">
+                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.phases.split(' ')[0]}</span>
+                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Phases</span>
+            </div>
+            <div className="metric-cell">
+                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.placement}</span>
+                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Program</span>
+            </div>
+            <div className="metric-cell">
+                <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{metrics.prep}</span>
+                <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Broker Prep</span>
+            </div>
         </div>
 
         {/* ── CTA ── */}

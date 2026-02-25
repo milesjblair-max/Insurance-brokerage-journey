@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Agentic AI Storyboard | Howden Broking Group",
-  description: "Experience the future of insurance broking where autonomous agents orchestrate complex placements with precision, speed, and complete human oversight.",
+  title: "Aurelius Global Industries | Agentic Insurance Storyboard",
+  description: "Executive storytelling journey demonstrating how agentic AI transforms global insurance broking with governed human oversight.",
 };
 
 export default function RootLayout({
