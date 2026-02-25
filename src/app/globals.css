@@ -1,57 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #9d4edd;
-  --color-accent-foreground: #ffffff;
-  --color-card: #121212;
-  --color-card-border: #2a2a2a;
-  --color-muted: #888888;
+  --color-accent: #9333ea;
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --accent: #9d4edd;
-  --accent-muted: rgba(157, 78, 221, 0.1);
-  --card-bg: #0a0a0a;
-  --border-color: #1a1a1a;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  scroll-behavior: smooth;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #9d4edd 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.glass-card {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glass-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(157, 78, 221, 0.1);
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: 147 51 234;
+  /* Purple-600 */
+  --accent-foreground: 255 255 255;
+  --accent-rgb: 147, 51, 234;
 }
 
 @layer base {
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  body {
+    @apply antialiased;
+    font-family: 'Inter', sans-serif;
   }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .dark-cover {
+    @apply bg-black text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden;
+  }
+
+  .white-journey {
+    @apply bg-white text-black min-h-screen flex flex-col;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-purple-600 text-white font-bold rounded-full transition-all hover:bg-purple-700 hover:scale-105 active:scale-95 shadow-lg shadow-purple-500/20;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-white/10 text-white font-bold rounded-full border border-white/20 transition-all hover:bg-white/20;
+  }
+
+  .btn-outline {
+    @apply px-6 py-2 border border-black/10 rounded-full text-sm font-bold uppercase tracking-wider transition-all hover:bg-black/5 active:scale-95;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
