@@ -1,39 +1,51 @@
 import React from 'react';
 import Link from 'next/link';
 
-const JourneyIntro: React.FC = () => {
-    return (
-        <section className="white-journey flex-grow flex items-center justify-center py-20 px-6">
-            <div className="max-w-4xl w-full text-center fade-in">
-                <h2 className="text-4xl md:text-5xl font-bold mb-12 text-black leading-tight">
-                    Global Insurance Programme <br />
-                    <span className="text-purple-600">— Agentic AI Journey</span>
-                </h2>
+const bullets = [
+    'Unified Client 360 — Aurelius Global Industries',
+    'Intelligent Placement Orchestration across 32 territories',
+    'AI-Powered Broker Briefing & Meeting Prep',
+    'Voice-Driven CRM Execution & Revenue Attribution',
+];
 
-                <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-2xl mx-auto text-left">
-                    {[
-                        "Unified Client 360",
-                        "Intelligent Placement Orchestration",
-                        "AI Meeting Preparation",
-                        "Voice-Driven CRM Updates"
-                    ].map((bullet, i) => (
-                        <div key={i} className="flex items-start gap-4">
-                            <div className="w-6 h-6 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3 h-3 text-purple-600">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                                </svg>
-                            </div>
-                            <span className="text-lg font-medium text-black/70">{bullet}</span>
-                        </div>
-                    ))}
-                </div>
+const JourneyIntro: React.FC = () => (
+    <div className="journey-intro">
+        <p className="t-label fade-up fade-up-1" style={{ color: '#a100ff', marginBottom: 16 }}>
+            Salesforce FSC &nbsp;·&nbsp; Data Cloud &nbsp;·&nbsp; Agentforce
+        </p>
+        <h2 className="t-h2 fade-up fade-up-2" style={{ marginBottom: 16 }}>
+            Global Insurance Programme<br />
+            <span style={{ color: '#a100ff' }}>Agentic AI Journey</span>
+        </h2>
+        <p className="t-body fade-up fade-up-3" style={{ maxWidth: 540, marginBottom: 0 }}>
+            A step-by-step walkthrough of how a multinational commercial risk programme moves from initial contact through to bound placement — orchestrated by AI, governed by humans.
+        </p>
 
-                <Link href="/journey/1" className="btn-primary inline-block">
-                    Start Journey
-                </Link>
-            </div>
-        </section>
-    );
-};
+        <ul className="journey-intro-bullets fade-up fade-up-4">
+            {bullets.map((b, i) => (
+                <li key={i} className="journey-intro-bullet" style={{ listStyle: 'none' }}>
+                    <span style={{
+                        width: 22, height: 22, borderRadius: '50%', background: 'rgba(161,0,255,0.1)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                    }}>
+                        <svg width="10" height="10" fill="none" viewBox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke="#a100ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </span>
+                    {b}
+                </li>
+            ))}
+        </ul>
+
+        <div className="fade-up fade-up-5">
+            <Link href="/journey/1" className="btn-primary">
+                Start Journey
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                    <path d="m9 18 6-6-6-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </Link>
+        </div>
+    </div>
+);
 
 export default JourneyIntro;

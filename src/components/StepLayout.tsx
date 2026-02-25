@@ -1,100 +1,158 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface StepLayoutProps {
     currentStep: number;
     totalSteps: number;
+    phaseTitle: string;
+    phaseId: string;
     title: string;
     description: string;
     whatHappens: string[];
     soWhat: string[];
+    logos?: string[];
     prevLink?: string;
     nextLink?: string;
 }
 
+const LOGO_LABELS: Record<string, string> = {
+    '/agent force logo.png': 'Agentforce',
+    '/financial services cloud logo.png': 'Salesforce FSC',
+    '/data cloud.jpg': 'Data Cloud',
+    '/Salesforce Logo.png': 'Salesforce',
+};
+
+const ALL_PHASES = [
+    { label: 'Discover', stepStart: 1 },
+    { label: 'Onboard', stepStart: 2 },
+    { label: 'Prepare', stepStart: 3 },
+    { label: 'Advise', stepStart: 4 },
+    { label: 'Execute', stepStart: 5 },
+];
+
 const StepLayout: React.FC<StepLayoutProps> = ({
-    currentStep,
-    totalSteps,
-    title,
-    description,
-    whatHappens,
-    soWhat,
-    prevLink,
-    nextLink
+    currentStep, totalSteps, phaseTitle, title, description,
+    whatHappens, soWhat, logos = [], prevLink, nextLink,
 }) => {
+    // determine active phase: whichever stepStart <= currentStep, take the last
+    const activePhase = ALL_PHASES.reduce<string>((acc, p) => {
+        if (p.stepStart <= currentStep) return p.label;
+        return acc;
+    }, ALL_PHASES[0].label);
+
     return (
-        <section className="white-journey flex-grow py-12 md:py-20 px-6">
-            <div className="max-w-[1100px] mx-auto fade-in">
-                {/* Step Content */}
-                <div className="mb-12">
-                    <div className="inline-block px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-bold mb-6 tracking-widest uppercase">
-                        Step {currentStep} of {totalSteps}
+        <>
+            <article className="step-page">
+                {/* ── Step Badge + Title ── */}
+                <div className="step-header">
+                    <div className="step-number-badge fade-up fade-up-1">
+                        <div className="step-number-dot">{currentStep}</div>
+                        <span className="t-label" style={{ color: '#a100ff' }}>
+                            {phaseTitle} &nbsp;·&nbsp; Step {currentStep} of {totalSteps}
+                        </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">
+
+                    <h2 className="t-h2 fade-up fade-up-2" style={{ marginBottom: 16, marginTop: 0 }}>
                         {title}
                     </h2>
-                    <p className="text-xl md:text-2xl text-black/60 font-medium leading-relaxed max-w-4xl">
+                    <p className="t-body fade-up fade-up-3" style={{ maxWidth: 700, marginBottom: 0 }}>
                         {description}
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-20 border-t border-black/5 pt-12">
-                    {/* What Happens */}
+                {/* ── Two-column content ── */}
+                <div className="step-content-grid fade-up fade-up-3">
                     <div>
-                        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-black/30 mb-8">What Happens</h3>
-                        <ul className="space-y-6">
-                            {whatHappens.map((item, i) => (
-                                <li key={i} className="flex gap-4 group">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2.5 flex-shrink-0 group-hover:scale-150 transition-transform" />
-                                    <span className="text-lg text-black/80 font-medium leading-normal">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        <p className="step-col-label">What Happens</p>
+                        {whatHappens.map((item, i) => (
+                            <div key={i} className="step-bullet">
+                                <div className="step-bullet-dot accent" />
+                                <span className="step-bullet-text">{item}</span>
+                            </div>
+                        ))}
                     </div>
-
-                    {/* So What */}
                     <div>
-                        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-black/30 mb-8">So What</h3>
-                        <ul className="space-y-6">
-                            {soWhat.map((item, i) => (
-                                <li key={i} className="flex gap-4 group">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-black/10 mt-2.5 flex-shrink-0 group-hover:bg-purple-600 transition-colors" />
-                                    <span className="text-lg text-black/60 font-medium leading-normal italic">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        <p className="step-col-label">So What</p>
+                        {soWhat.map((item, i) => (
+                            <div key={i} className="step-bullet">
+                                <div className="step-bullet-dot muted" />
+                                <span className="step-bullet-text italic-muted">{item}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-12 border-t border-black/5">
-                    {nextLink ? (
-                        <Link href={nextLink} className="btn-primary flex items-center justify-center gap-2">
-                            Next Stage
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </Link>
-                    ) : (
-                        <Link href="/" className="btn-primary flex items-center justify-center gap-2">
-                            Full Cycle Complete
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                            </svg>
-                        </Link>
-                    )}
+                {/* ── Logo Strip ── */}
+                {logos.length > 0 && (
+                    <div className="fade-up fade-up-4" style={{ marginTop: 32 }}>
+                        <p className="step-col-label" style={{ marginBottom: 14 }}>Platform</p>
+                        <div className="logo-strip">
+                            {logos.map((src, i) => (
+                                <div key={i} className="logo-chip">
+                                    <Image
+                                        src={src}
+                                        alt={LOGO_LABELS[src] || 'Platform logo'}
+                                        height={20}
+                                        width={80}
+                                        style={{ height: 20, width: 'auto', objectFit: 'contain' }}
+                                        unoptimized
+                                    />
+                                    <span style={{ fontSize: 12, fontWeight: 600, color: '#444', whiteSpace: 'nowrap' }}>
+                                        {LOGO_LABELS[src] || ''}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
-                    {prevLink && (
-                        <Link href={prevLink} className="btn-outline flex items-center justify-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                            </svg>
-                            Back
-                        </Link>
-                    )}
+                {/* ── Navigation ── */}
+                <div className="step-nav fade-up fade-up-5">
+                    <div className="step-nav-left">
+                        {prevLink && (
+                            <Link href={prevLink} className="btn-outline">
+                                <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+                                    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                Back
+                            </Link>
+                        )}
+                    </div>
+                    <div className="step-nav-right">
+                        {nextLink ? (
+                            <Link href={nextLink} className="btn-primary">
+                                Next Step
+                                <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+                                    <path d="m9 18 6-6-6-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </Link>
+                        ) : (
+                            <Link href="/" className="btn-primary" style={{ background: '#18a34a' }}>
+                                Journey Complete
+                                <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+                                    <path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </Link>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </article>
+
+            {/* ── Bottom Phase Nav ── */}
+            <nav className="bottom-phase-nav" aria-label="Journey phases">
+                {ALL_PHASES.map((p, i) => (
+                    <Link
+                        key={i}
+                        href={`/journey/${p.stepStart}`}
+                        className={`phase-pill ${p.label === activePhase ? 'active' : ''}`}
+                    >
+                        {p.label}
+                    </Link>
+                ))}
+            </nav>
+        </>
     );
 };
 

@@ -1,43 +1,101 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const HeroDark: React.FC = () => {
-    return (
-        <section className="dark-cover px-6 text-center">
-            {/* Subtle background gradient */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.08),transparent_50%)]" />
+const personas = [
+    {
+        id: 'client',
+        name: 'Aurelius Global Industries',
+        role: 'Global Multinational Enterprise',
+        avatar: '/aurelius logo.png',
+        isLogo: true,
+        description:
+            'Aurelius Global Industries operates across 32 countries with complex commercial risk exposure spanning marine, cyber, property, and specialty liability lines.',
+    },
+    {
+        id: 'broker',
+        name: 'Mark Thurman',
+        role: 'Lead Broker — Global Accounts',
+        avatar: '/Mark Thurman.jpg',
+        isLogo: false,
+        description:
+            'Senior specialty broker responsible for structuring multinational programs and coordinating cross-border placements.',
+    },
+];
 
-            <div className="relative z-10 max-w-4xl mx-auto fade-in">
-                {/* Centered Business Logo Placeholder */}
-                <div className="mb-16 flex justify-center">
-                    <div className="flex flex-col items-center">
-                        <div className="text-4xl font-black tracking-[0.2em] italic text-white/90">HOWDEN</div>
-                        <div className="text-[10px] tracking-[0.5em] text-purple-400 font-bold mt-2 uppercase">Orchestration Engine</div>
-                    </div>
-                </div>
+const metrics = [
+    { value: '12', label: 'Orchestrated Steps' },
+    { value: '4', label: 'Journey Phases' },
+    { value: '$75M+', label: 'Program Placement' },
+    { value: '< 15 min', label: 'Broker Prep Time' },
+];
 
-                <div className="mb-12 opacity-80">
-                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-8" />
-                    <span className="text-xs font-bold uppercase tracking-[0.4em] text-purple-400">Agentic AI for Insurance Broking</span>
-                </div>
+const HeroDark: React.FC = () => (
+    <main className="cover-page">
+        {/* ambient glow */}
+        <div className="cover-glow" aria-hidden="true" />
 
-                <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
-                    From Enquiry to Bind — In a Single <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-200">Orchestrated Journey</span>
-                </h1>
+        {/* ── Hero ── */}
+        <section className="cover-hero">
+            <p className="t-label fade-up fade-up-1" style={{ color: 'rgba(161,0,255,0.85)', marginBottom: 24 }}>
+                Agentic AI &nbsp;·&nbsp; Global Insurance Broking
+            </p>
 
-                <p className="text-xl md:text-2xl text-white/50 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                    Unifying client onboarding, placement, and servicing with governed AI and expert human oversight.
-                </p>
+            <h1 className="t-hero fade-up fade-up-2" style={{ marginBottom: 24 }}>
+                From First Contact to Bound Risk —<br />
+                <span style={{ color: 'rgba(255,255,255,0.4)' }}>in One Intelligent Conversation</span>
+            </h1>
 
-                <Link href="/journey" className="btn-primary inline-block">
-                    Explore Journey
-                </Link>
-            </div>
-
-            {/* Bottom accent */}
-            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-purple-500/5 to-transparent pointer-events-none" />
+            <p className="t-body-dark fade-up fade-up-3" style={{ maxWidth: 640, marginBottom: 0 }}>
+                This interactive journey demonstrates how agentic AI transforms global insurance broking — connecting client engagement, broking intelligence, and execution workflows into one orchestrated experience.
+            </p>
         </section>
-    );
-};
+
+        {/* ── Persona Cards ── */}
+        <div className="cover-personas fade-up fade-up-4">
+            {personas.map(p => (
+                <div key={p.id} className="persona-card">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
+                        <div className="persona-avatar-wrap">
+                            <Image
+                                src={p.avatar}
+                                alt={p.name}
+                                width={60}
+                                height={60}
+                                style={{ objectFit: p.isLogo ? 'contain' : 'cover', padding: p.isLogo ? 6 : 0 }}
+                                unoptimized
+                            />
+                        </div>
+                        <div>
+                            <p className="t-label" style={{ color: 'rgba(161,0,255,0.8)', marginBottom: 4 }}>
+                                {p.role}
+                            </p>
+                            <h3 className="t-h3" style={{ margin: 0 }}>{p.name}</h3>
+                        </div>
+                    </div>
+                    <p className="t-body-dark" style={{ fontSize: 15, margin: 0 }}>{p.description}</p>
+                </div>
+            ))}
+        </div>
+
+        {/* ── Metrics ── */}
+        <div className="metrics-row fade-up fade-up-5" style={{ margin: '32px auto 0' }}>
+            {metrics.map(m => (
+                <div key={m.label} className="metric-cell">
+                    <span className="t-h2" style={{ color: '#fff', letterSpacing: '-0.03em' }}>{m.value}</span>
+                    <span className="t-label" style={{ color: 'rgba(255,255,255,0.3)' }}>{m.label}</span>
+                </div>
+            ))}
+        </div>
+
+        {/* ── CTA ── */}
+        <div className="cover-cta">
+            <Link href="/journey" className="btn-primary">
+                Explore Journey
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </Link>
+        </div>
+    </main>
+);
 
 export default HeroDark;

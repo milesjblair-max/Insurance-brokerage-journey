@@ -1,720 +1,170 @@
 {
   "brand": {
-    "name": "Howden",
-    "tagline": "AGENTIC AI • BROKING"
+    "name": "Accenture",
+    "tagline": "AGENTIC AI | INSURANCE BROKING"
   },
   "hero": {
-    "title": "From Enquiry to Bind — in a Single Conversation",
-    "subtitle": "An agentic AI journey for global insurance broking that unifies client onboarding, placement, and servicing with governed human oversight."
+    "title": "From First Contact to Bound Risk — in One Intelligent Conversation",
+    "subtitle": "This interactive journey demonstrates how agentic AI transforms global insurance broking — connecting client engagement, broking intelligence, and execution workflows into one orchestrated experience."
   },
-  "kpis": [
-    {
-      "label": "Orchestrated steps",
-      "value": "12"
-    },
-    {
-      "label": "Journey phases",
-      "value": "4"
-    },
-    {
-      "label": "Time-to-first-market",
-      "value": "< 10 min"
-    },
-    {
-      "label": "Broker admin reduction",
-      "value": "30–50%"
-    }
-  ],
+  "metrics": {
+    "steps": "12 Orchestrated Steps",
+    "phases": "4 Journey Phases",
+    "placement": "$75M+ Program Placement",
+    "prep": "< 15 min Broker Prep Time"
+  },
   "personas": [
     {
       "id": "client",
-      "name": "Client Lead",
-      "role": "Client — Risk Buyer",
-      "avatar": "/avatars/client.png",
+      "name": "Aurelius Global Industries",
+      "role": "Global Multinational Enterprise",
+      "avatar": "/aurelius logo.png",
       "bullets": [
-        "Global corporate with multiple subsidiaries across regions",
-        "Renewing a multi-line insurance programme and exploring coverage uplift",
-        "Wants a single point of contact and faster, clearer placement outcomes"
+        "Operates across 32 countries with complex commercial risk exposure",
+        "Spanning marine, cyber, property, and specialty liability lines"
       ]
     },
     {
       "id": "broker",
-      "name": "Lead Broker",
-      "role": "Broker — Placement Orchestrator",
-      "avatar": "/avatars/broker.png",
+      "name": "Mark Thurman",
+      "role": "Lead Broker — Global Accounts",
+      "avatar": "/Mark Thurman.jpg",
       "bullets": [
-        "Manages renewals, mid-term adjustments, and new placements across territories",
-        "Uses governed AI to triage, prepare meeting briefs, and orchestrate market engagement",
-        "Maintains human approval gates for compliance, placement strategy, and bind"
+        "Senior specialty broker responsible for structuring multinational programs",
+        "Coordinating cross-border placements"
       ]
     }
   ],
-  "clientModel": {
-    "note": "Client-agnostic example using a global parent with regional subsidiaries and carrier relationships. Use External IDs to align with FSC loads.",
-    "accounts": [
-      {
-        "externalId": "CC-GLB-001",
-        "name": "Global Corporate Client (Parent)",
-        "type": "Corporate Client",
-        "region": "Global",
-        "children": [
-          "CC-UK-001",
-          "CC-SG-001",
-          "CC-AU-001"
-        ]
-      },
-      {
-        "externalId": "CC-UK-001",
-        "name": "Subsidiary — UK",
-        "type": "Corporate Client",
-        "region": "UK"
-      },
-      {
-        "externalId": "CC-SG-001",
-        "name": "Subsidiary — APAC",
-        "type": "Corporate Client",
-        "region": "APAC"
-      },
-      {
-        "externalId": "CC-AU-001",
-        "name": "Subsidiary — ANZ",
-        "type": "Corporate Client",
-        "region": "ANZ"
-      },
-      {
-        "externalId": "CARR-AXA-001",
-        "name": "Carrier A",
-        "type": "Carrier",
-        "region": "Regional"
-      },
-      {
-        "externalId": "CARR-MR-001",
-        "name": "Carrier B",
-        "type": "Reinsurer",
-        "region": "Global"
-      }
-    ]
-  },
   "phases": [
     {
       "id": "phase-1",
-      "title": "Intake & Qualification",
-      "summary": "Prioritise accounts, initiate structured onboarding, and confirm compliance before market engagement.",
+      "title": "Discover",
+      "summary": "Intelligent Lead & Relationship Insight",
       "steps": [
         {
-          "id": "step-01",
-          "title": "Broker homepage prioritises active demand",
-          "summary": "A dynamic list surfaces the highest-value renewals, at-risk programmes, and urgent servicing signals.",
-          "agentActions": [
-            "Ranks renewals by premium-at-risk, claims volatility, and time-to-expiry",
-            "Explains the score drivers and suggests next best actions",
-            "Drafts a personalised outreach email based on account context"
+          "id": "step-1",
+          "title": "AI surfaces Aurelius as strategic account opportunity",
+          "summary": "Agentforce identifies high-potential opportunities by analyzing global revenue footprints and exposure concentrations.",
+          "whatHappens": [
+            "Identifies global revenue footprint",
+            "Highlights exposure concentration in APAC",
+            "Flags expiring marine & cyber programs",
+            "Agentforce explains lead prioritization logic"
           ],
-          "humanOversight": [
-            "Broker reviews the prioritisation rationale",
-            "Broker edits and approves the outreach before sending"
+          "soWhat": [
+            "Directs broker focus to highest-value renewals",
+            "Automated opportunity qualification",
+            "Early identification of coverage gaps",
+            "Reduced research time for lead brokers"
           ],
-          "systems": [
-            "Salesforce FSC",
-            "Data Cloud 360",
-            "Agentforce"
-          ],
-          "dataIn": [
-            "Accounts",
-            "Opportunities",
-            "Policies",
-            "Claims trends",
-            "Service cases"
-          ],
-          "dataOut": [
-            "Prioritised worklist",
-            "Outreach draft",
-            "Recommended next actions"
-          ],
-          "artifacts": [
-            {
-              "type": "Outreach Email Draft",
-              "text": "Draft email to the client’s Risk Buyer summarising renewal timeline, key discussion points, and requested materials."
-            }
-          ],
-          "tags": [
-            "crm",
-            "prioritisation",
-            "renewals"
-          ]
-        },
-        {
-          "id": "step-02",
-          "title": "New relationship / programme quick action",
-          "summary": "A guided intake captures the programme scope and dynamically adjusts based on line of business and territories.",
-          "agentActions": [
-            "Presents a dynamically rendered, step-based form for programme setup",
-            "Auto-populates fields using enrichment and existing global hierarchy matches",
-            "Creates initial opportunity shell(s) for requested lines of business"
-          ],
-          "humanOversight": [
-            "Broker confirms required sections (territories, LoBs, contacts, carriers)",
-            "Broker approves any merge/match decision for existing global entities"
-          ],
-          "systems": [
-            "OmniStudio",
-            "Salesforce FSC",
-            "Data Cloud 360"
-          ],
-          "dataIn": [
-            "Client-provided request",
-            "Existing account hierarchy",
-            "External enrichment"
-          ],
-          "dataOut": [
-            "Account + hierarchy updates",
-            "Initial opportunities",
-            "Structured intake record"
-          ],
-          "artifacts": [
-            {
-              "type": "Programme Intake Record",
-              "text": "Structured capture of requested coverages, territories, key stakeholders, and renewal timing."
-            }
-          ],
-          "tags": [
-            "onboarding",
-            "hierarchy",
-            "intake"
-          ]
-        },
-        {
-          "id": "step-03",
-          "title": "KYC / sanctions screening gate",
-          "summary": "Compliance checks execute early to prevent downstream rework and ensure eligibility to trade.",
-          "agentActions": [
-            "Runs sanctions and KYC checks on client entities and key stakeholders",
-            "Flags potential hits with confidence scoring and recommended disposition",
-            "Routes exceptions to compliance for review with audit trail"
-          ],
-          "humanOversight": [
-            "Compliance analyst validates and resolves flagged matches",
-            "Broker proceeds only when screening status is cleared/approved"
-          ],
-          "systems": [
-            "Salesforce FSC",
-            "Compliance Screening API",
-            "Agentforce"
-          ],
-          "dataIn": [
-            "Entity identifiers",
-            "Stakeholder identities",
-            "Jurisdictions"
-          ],
-          "dataOut": [
-            "Screening status",
-            "Exception case (if required)",
-            "Audit log entries"
-          ],
-          "artifacts": [
-            {
-              "type": "Compliance Summary",
-              "text": "Screening outcome with resolved flags and timestamped approvals."
-            }
-          ],
-          "tags": [
-            "compliance",
-            "kyc",
-            "sanctions"
+          "logos": [
+            "/agent force logo.png",
+            "/data cloud.jpg"
           ]
         }
       ]
     },
     {
       "id": "phase-2",
-      "title": "Placement & Market Engagement",
-      "summary": "Translate intent into a structured submission, select a market panel, and orchestrate carrier outreach.",
+      "title": "Onboard",
+      "summary": "Guided Global Onboarding",
       "steps": [
         {
-          "id": "step-04",
-          "title": "Account 360 consolidates global programme context",
-          "summary": "Broker reviews the client’s global book of business: policies, premiums, claims, servicing, and milestones across subsidiaries.",
-          "agentActions": [
-            "Surfaces active policies by LoB and territory with premium and commission rollups",
-            "Highlights claims trends and servicing hotspots",
-            "Identifies concentration risk across carriers"
+          "id": "step-2",
+          "title": "OmniStudio guided intake",
+          "summary": "Streamlined onboarding through multi-entity hierarchy capture and automated screening.",
+          "whatHappens": [
+            "Captures parent: Aurelius Global Industries",
+            "Maps subsidiaries across UK, US, Singapore",
+            "Runs automated KYC and Sanctions screening",
+            "Enriches data via D&B and external APIs"
           ],
-          "humanOversight": [
-            "Broker validates what is in/out of scope for this renewal cycle",
-            "Broker confirms stakeholders and servicing owners by region"
+          "soWhat": [
+            "Ensures 100% compliance early in the cycle",
+            "Unified view of global entity relationships",
+            "Drastic reduction in manual onboarding tasks",
+            "Clean data baseline for downstream placement"
           ],
-          "systems": [
-            "Salesforce FSC",
-            "Data Cloud 360"
-          ],
-          "dataIn": [
-            "Policy records",
-            "Claims history",
-            "Service cases",
-            "Hierarchy relationships"
-          ],
-          "dataOut": [
-            "360 snapshot",
-            "Risk flags",
-            "Regional ownership assignments"
-          ],
-          "artifacts": [
-            {
-              "type": "Global Programme Snapshot",
-              "text": "Rollup of premium, claims, carrier mix, open issues, and renewal dates across subsidiaries."
-            }
-          ],
-          "tags": [
-            "client360",
-            "global",
-            "insights"
-          ]
-        },
-        {
-          "id": "step-05",
-          "title": "Agentforce account summary (broker briefing)",
-          "summary": "AI summarises what matters for placement: renewal risk, recent events, open items, and recommended focus areas.",
-          "agentActions": [
-            "Summarises programme performance and renewal risk drivers",
-            "Pulls relevant external signals (news, regulatory, sector risks) when enabled",
-            "Generates a concise broker brief with talking points"
-          ],
-          "humanOversight": [
-            "Broker verifies external signal relevance and removes noise",
-            "Broker approves the brief for meeting preparation"
-          ],
-          "systems": [
-            "Agentforce",
-            "Salesforce FSC",
-            "External Signals (optional)"
-          ],
-          "dataIn": [
-            "Account context",
-            "Opportunities",
-            "Cases",
-            "External signals (optional)"
-          ],
-          "dataOut": [
-            "Broker brief",
-            "Recommended actions",
-            "Open questions list"
-          ],
-          "artifacts": [
-            {
-              "type": "Broker Brief",
-              "text": "Summary of renewal risks, coverage gaps, open servicing, and proposed discussion agenda."
-            }
-          ],
-          "tags": [
-            "summary",
-            "briefing",
-            "ai"
-          ]
-        },
-        {
-          "id": "step-06",
-          "title": "Pre-meeting toolkit generates renewal strategy",
-          "summary": "The toolkit assembles coverage gaps, market appetite suggestions, and cross-sell options into a meeting-ready pack.",
-          "agentActions": [
-            "Produces meeting agenda and talking points aligned to risks and timeline",
-            "Suggests cross-sell (e.g., parametric, trade credit, cyber uplift) based on rules",
-            "Lists required artifacts: loss runs, schedules, wordings, risk questionnaire"
-          ],
-          "humanOversight": [
-            "Broker edits agenda and confirms the negotiation posture",
-            "Broker confirms what can be shared with client vs internal-only"
-          ],
-          "systems": [
-            "Agentforce",
-            "Salesforce FSC",
-            "Data Cloud 360"
-          ],
-          "dataIn": [
-            "Programme snapshot",
-            "Rules for recommendations",
-            "Client goals"
-          ],
-          "dataOut": [
-            "Meeting pack",
-            "Recommendations",
-            "Artifact checklist"
-          ],
-          "artifacts": [
-            {
-              "type": "Meeting Pack",
-              "text": "Agenda, risks, renewal timeline, recommended coverages, and requested documents checklist."
-            }
-          ],
-          "tags": [
-            "meeting",
-            "strategy",
-            "recommendations"
-          ]
-        },
-        {
-          "id": "step-07",
-          "title": "Market panel selection & appetite routing",
-          "summary": "AI proposes a carrier panel and routes outreach based on appetite, territory, and placement strategy.",
-          "agentActions": [
-            "Suggests carrier panel and alternates using appetite rules and prior outcomes",
-            "Drafts carrier outreach messages and submission request emails",
-            "Creates tasks for specialist teams (e.g., cyber, marine, D&O) by region"
-          ],
-          "humanOversight": [
-            "Broker approves carrier panel and exclusions",
-            "Broker approves outreach wording and submission scope before sending"
-          ],
-          "systems": [
-            "Salesforce FSC",
-            "Agentforce",
-            "Carrier Panel Rules (config)"
-          ],
-          "dataIn": [
-            "Coverage scope",
-            "Territories",
-            "Prior carrier outcomes",
-            "Appetite rules"
-          ],
-          "dataOut": [
-            "Carrier panel shortlist",
-            "Outreach drafts",
-            "Specialist task assignments"
-          ],
-          "artifacts": [
-            {
-              "type": "Carrier Outreach Draft",
-              "text": "Structured email requesting indications and terms, with risk highlights and required attachments."
-            }
-          ],
-          "tags": [
-            "placement",
-            "carriers",
-            "orchestration"
+          "logos": [
+            "/financial services cloud logo.png",
+            "/data cloud.jpg"
           ]
         }
       ]
     },
     {
       "id": "phase-3",
-      "title": "Quote, Bind & Documentation",
-      "summary": "Aggregate quotes, compare terms, obtain approvals, and generate bind documentation with audit-ready traceability.",
+      "title": "Prepare & Advise",
+      "summary": "Broker Preparation and Meeting Intelligence",
       "steps": [
         {
-          "id": "step-08",
-          "title": "Submission pack assembly and distribution",
-          "summary": "Agent compiles a clean submission pack from structured intake, attachments, and standard templates.",
-          "agentActions": [
-            "Extracts key data from uploaded loss runs, schedules, and questionnaires (when enabled)",
-            "Validates completeness against checklist and flags missing items",
-            "Packages and distributes the submission pack to selected markets"
+          "id": "step-3",
+          "title": "FSC 360 Account View & Summary",
+          "summary": "Holistic view of the global program with AI-generated briefing notes.",
+          "whatHappens": [
+            "Rolls up global policies and year claims",
+            "Surfaces active placements and revenue by region",
+            "Agentforce generates account summary",
+            "Highlights market risk alerts and x-sell recommendations"
           ],
-          "humanOversight": [
-            "Broker verifies extracted fields and approves final pack version",
-            "Broker confirms distribution list and timing"
+          "soWhat": [
+            "Broker prep time reduced from hours to minutes",
+            "Proactive identification of renewal vulnerabilities",
+            "Data-driven client negotiation strategy",
+            "Maximized cross-sell opportunity awareness"
           ],
-          "systems": [
-            "Salesforce FSC",
-            "Document Management (optional)",
-            "Agentforce"
-          ],
-          "dataIn": [
-            "Loss runs",
-            "Risk questionnaire",
-            "Exposure schedules",
-            "Templates"
-          ],
-          "dataOut": [
-            "Submission pack",
-            "Completeness report",
-            "Distribution log"
-          ],
-          "artifacts": [
-            {
-              "type": "Submission Pack",
-              "text": "Consolidated submission including risk summary, schedules, claims, and requested terms."
-            }
-          ],
-          "tags": [
-            "documents",
-            "submission",
-            "extraction"
+          "logos": [
+            "/agent force logo.png",
+            "/financial services cloud logo.png"
           ]
         },
         {
-          "id": "step-09",
-          "title": "Quote ingestion and comparison",
-          "summary": "Incoming quotes are normalised into comparable terms, pricing, and exclusions across carriers.",
-          "agentActions": [
-            "Ingests quote documents and normalises key fields (premium, limits, deductibles, exclusions)",
-            "Builds a side-by-side comparison table and highlights deltas",
-            "Flags non-standard clauses and recommends questions to carriers"
+          "id": "step-4",
+          "title": "Pre-Meeting Toolkit",
+          "summary": "Assembly of risk insights and capacity recommendations for client engagement.",
+          "whatHappens": [
+            "Visualizes risk exposure heatmap",
+            "Surfaces real-time market appetite insights",
+            "Provides intelligent capacity recommendations",
+            "Develops optimal carrier strategy"
           ],
-          "humanOversight": [
-            "Broker validates normalised terms and highlights",
-            "Broker decides shortlist and negotiation priorities"
+          "soWhat": [
+            "High-impact visual risk reporting for clients",
+            "Placement strategy aligned with market capacity",
+            "Differentiated broker advisory experience",
+            "Higher win-rates through intelligent insight"
           ],
-          "systems": [
-            "Salesforce FSC",
-            "Agentforce",
-            "Quote Repository (optional)"
-          ],
-          "dataIn": [
-            "Quote documents",
-            "Market responses",
-            "Coverage requirements"
-          ],
-          "dataOut": [
-            "Comparison table",
-            "Negotiation questions",
-            "Shortlist recommendation"
-          ],
-          "artifacts": [
-            {
-              "type": "Quote Comparison Table",
-              "text": "Carrier-by-carrier comparison of premium, coverage, exclusions, and conditions."
-            }
-          ],
-          "tags": [
-            "quotes",
-            "comparison",
-            "negotiation"
-          ]
-        },
-        {
-          "id": "step-10",
-          "title": "Bind decision with approval gates",
-          "summary": "Bind is executed only after approvals, checks, and required governance steps are satisfied.",
-          "agentActions": [
-            "Routes bind recommendation to required approvers (broker lead, compliance, finance) based on thresholds",
-            "Creates bind checklist and captures approvals with timestamps",
-            "Generates bind confirmation draft and coverage summary for client"
-          ],
-          "humanOversight": [
-            "Approvers review recommendation and approve/reject with rationale",
-            "Broker confirms bind instruction and client communication"
-          ],
-          "systems": [
-            "Salesforce FSC",
-            "Approvals",
-            "Agentforce"
-          ],
-          "dataIn": [
-            "Shortlisted quote",
-            "Governance rules",
-            "Approval thresholds"
-          ],
-          "dataOut": [
-            "Approved bind instruction",
-            "Audit trail",
-            "Client confirmation draft"
-          ],
-          "artifacts": [
-            {
-              "type": "Bind Confirmation Draft",
-              "text": "Client-facing confirmation summarising bound terms, key dates, and next steps."
-            }
-          ],
-          "tags": [
-            "bind",
-            "governance",
-            "approvals"
-          ]
+          "logos": []
         }
       ]
     },
     {
       "id": "phase-4",
-      "title": "Post-bind Service & Insight Loop",
-      "summary": "Log outcomes, allocate revenue, manage servicing, and feed insights back into renewal strategy.",
+      "title": "Execute",
+      "summary": "Voice-Enabled Execution",
       "steps": [
         {
-          "id": "step-11",
-          "title": "Voice agent logs meeting outcomes and actions",
-          "summary": "After a client meeting, broker uses voice to capture decisions, create opportunities, and assign tasks in seconds.",
-          "agentActions": [
-            "Creates new opportunities (e.g., cyber uplift, APAC marine placement) from a spoken summary",
-            "Logs call report and generates interaction summary",
-            "Creates tasks (request loss runs, schedule follow-up, engage regional specialists) and assigns owners"
+          "id": "step-5",
+          "title": "Voice Agent logs meeting outcomes",
+          "summary": "Hands-free capture of complex placement instructions and back-office orchestration.",
+          "whatHappens": [
+            "Logs $12M Cyber Program Renewal",
+            "Triggers new Marine Excess Placement",
+            "Assigns tasks to London and Singapore desks",
+            "Updates global revenue model in real-time"
           ],
-          "humanOversight": [
-            "Broker reviews created records and corrects any misinterpreted fields",
-            "Broker confirms assignments and due dates"
+          "soWhat": [
+            "Eliminates admin backlog after client meetings",
+            "Instant global team orchestration",
+            "Seamless transition from advice to execution",
+            "High-fidelity capture of client sentiment"
           ],
-          "systems": [
-            "Voice Agent",
-            "Agentforce",
-            "Salesforce FSC"
-          ],
-          "dataIn": [
-            "Spoken meeting notes",
-            "Existing account context"
-          ],
-          "dataOut": [
-            "Call report",
-            "New opportunities",
-            "Tasks",
-            "Interaction summary"
-          ],
-          "artifacts": [
-            {
-              "type": "Interaction Summary",
-              "text": "Auto-generated meeting notes, decisions, and next steps linked to the client record."
-            }
-          ],
-          "tags": [
-            "voice",
-            "automation",
-            "productivity"
-          ]
-        },
-        {
-          "id": "step-12",
-          "title": "Revenue share attribution and insight capture",
-          "summary": "The outcome updates global reporting, revenue sharing, and the advisory loop using post-bind and servicing data.",
-          "agentActions": [
-            "Allocates revenue share across teams based on originating vs executing roles",
-            "Captures claims/servicing insight for risk advisory recommendations",
-            "Suggests renewal and cross-sell actions based on new signals and outcomes"
-          ],
-          "humanOversight": [
-            "Broker lead validates revenue allocation and ownership",
-            "Broker approves advisory recommendations before sharing with client"
-          ],
-          "systems": [
-            "Salesforce FSC",
-            "Data Cloud 360",
-            "Agentforce",
-            "Finance/BI (optional)"
-          ],
-          "dataIn": [
-            "Placement outcomes",
-            "Servicing activity",
-            "Claims updates",
-            "Revenue rules"
-          ],
-          "dataOut": [
-            "Revenue attribution",
-            "Advisory insights",
-            "Renewal recommendations"
-          ],
-          "artifacts": [
-            {
-              "type": "Renewal Insight Note",
-              "text": "Claims and servicing learnings translated into risk mitigation and coverage optimisation recommendations."
-            }
-          ],
-          "tags": [
-            "insights",
-            "renewals",
-            "revenue"
+          "logos": [
+            "/agent force logo.png",
+            "/financial services cloud logo.png"
           ]
         }
       ]
     }
-  ],
-  "sections": {
-    "capabilities": {
-      "title": "Capabilities",
-      "items": [
-        {
-          "title": "Intake & Triage",
-          "bullets": [
-            "Dynamic prioritisation",
-            "Guided onboarding",
-            "Early compliance gate"
-          ]
-        },
-        {
-          "title": "Placement Orchestration",
-          "bullets": [
-            "Market panel selection",
-            "Submission pack generation",
-            "Carrier outreach drafting"
-          ]
-        },
-        {
-          "title": "Quote-to-Bind Acceleration",
-          "bullets": [
-            "Quote normalisation",
-            "Comparison tables",
-            "Approval-driven bind workflow"
-          ]
-        },
-        {
-          "title": "Servicing & Insight Loop",
-          "bullets": [
-            "Voice capture",
-            "Task automation",
-            "Claims-driven advisory and renewals"
-          ]
-        }
-      ]
-    },
-    "architecture": {
-      "title": "Architecture (Conceptual)",
-      "layers": [
-        {
-          "name": "Channels",
-          "items": [
-            "Client Portal",
-            "Email",
-            "Mobile (Voice)",
-            "Broker Workspace"
-          ]
-        },
-        {
-          "name": "CRM",
-          "items": [
-            "Salesforce FSC",
-            "Activities, Opportunities, Relationships",
-            "Approvals & Audit"
-          ]
-        },
-        {
-          "name": "Broking Platform",
-          "items": [
-            "Broking/Policy Admin Platform",
-            "Placement workflows",
-            "Document generation (optional)"
-          ]
-        },
-        {
-          "name": "Data",
-          "items": [
-            "Data Cloud 360",
-            "Group Data Platform (optional)",
-            "Master data & hierarchy"
-          ]
-        },
-        {
-          "name": "AI Orchestration",
-          "items": [
-            "Agentforce",
-            "Voice Agent",
-            "Rules & Guardrails",
-            "Retrieval (optional)"
-          ]
-        },
-        {
-          "name": "External",
-          "items": [
-            "Sanctions/KYC providers",
-            "Company enrichment",
-            "Market signals/news (optional)"
-          ]
-        }
-      ]
-    },
-    "governance": {
-      "title": "Governance",
-      "bullets": [
-        "Human approval gates for bind decisions and sensitive actions",
-        "Role-based access and least-privilege permissions",
-        "Audit logging for agent actions and data access",
-        "Data lineage for summaries and extracted fields (where enabled)",
-        "Model guardrails and prompt controls aligned to policy",
-        "Record retention and compliance controls"
-      ]
-    }
-  }
+  ]
 }

@@ -1,16 +1,21 @@
-import { getStoryboardData } from '@/lib/storyboard';
+import { getStoryboardData, getAllSteps } from '@/lib/storyboard';
 import Header from '@/components/Header';
 import StepLayout from '@/components/StepLayout';
 import Footer from '@/components/Footer';
 import { notFound } from 'next/navigation';
 
+const PHASE_NAV = [
+    { id: 'discover', title: 'Discover', href: '/journey/1' },
+    { id: 'onboard', title: 'Onboard', href: '/journey/2' },
+    { id: 'prepare', title: 'Prepare', href: '/journey/3' },
+    { id: 'advise', title: 'Advise', href: '/journey/4' },
+    { id: 'execute', title: 'Execute', href: '/journey/5' },
+];
+
 export function generateStaticParams() {
     const data = getStoryboardData();
-    const allSteps = data.phases.flatMap(p => p.steps);
-
-    return allSteps.map((_, index) => ({
-        step: (index + 1).toString(),
-    }));
+    const allSteps = getAllSteps(data);
+    return allSteps.map((_, i) => ({ step: (i + 1).toString() }));
 }
 
 interface PageProps {
@@ -20,44 +25,53 @@ interface PageProps {
 export default async function StepPage({ params }: PageProps) {
     const { step: stepParam } = await params;
     const data = getStoryboardData();
-    const allSteps = data.phases.flatMap(p => p.steps);
-    const stepIndex = parseInt(stepParam) - 1;
+    const allSteps = getAllSteps(data);
+    const idx = parseInt(stepParam) - 1;
 
-    if (isNaN(stepIndex) || stepIndex < 0 || stepIndex >= allSteps.length) {
+    if (isNaN(idx) || idx < 0 || idx >= allSteps.length) {
         notFound();
     }
 
-    const stepData = allSteps[stepIndex];
-    const totalSteps = allSteps.length;
+    const s = allSteps[idx];
+    const total = allSteps.length;
+    const prevLink = idx > 0 ? `/journey/${idx}` : '/journey';
+    const nextLink = idx < total - 1 ? `/journey/${idx + 2}` : undefined;
 
-    const prevLink = stepIndex > 0 ? `/journey/${stepIndex}` : '/journey';
-    const nextLink = stepIndex < totalSteps - 1 ? `/journey/${stepIndex + 2}` : undefined;
-
-    // Map existing data to "What Happens" and "So What"
-    const whatHappens = [...stepData.agentActions, ...stepData.humanOversight].slice(0, 4);
-    const soWhat = stepData.dataOut.slice(0, 4);
+    // Mark active phase in nav
+    const phasesWithActive = PHASE_NAV.map(p => ({
+        ...p,
+        active: p.id === s.phaseId.replace('phase-', (() => {
+            const map: Record<string, string> = {
+                'phase-1': 'discover',
+                'phase-2': 'onboard',
+                'phase-3': 'prepare',
+                'phase-4': 'execute',
+            };
+            return map[s.phaseId] || '';
+        })()),
+    }));
 
     return (
-        <main className="min-h-screen bg-white flex flex-col">
+        <div className="journey-page" style={{ paddingBottom: 60 }}>
             <Header
                 theme="light"
-                showProgress
-                currentStep={stepIndex + 1}
-                totalSteps={totalSteps}
+                stepLabel={`Step ${idx + 1} of ${total}`}
+                phases={phasesWithActive}
             />
-
             <StepLayout
-                currentStep={stepIndex + 1}
-                totalSteps={totalSteps}
-                title={stepData.title}
-                description={stepData.summary}
-                whatHappens={whatHappens}
-                soWhat={soWhat}
+                currentStep={idx + 1}
+                totalSteps={total}
+                phaseTitle={s.phaseTitle}
+                phaseId={s.phaseId}
+                title={s.title}
+                description={s.summary}
+                whatHappens={s.whatHappens}
+                soWhat={s.soWhat}
+                logos={s.logos}
                 prevLink={prevLink}
                 nextLink={nextLink}
             />
-
             <Footer theme="light" />
-        </main>
+        </div>
     );
 }

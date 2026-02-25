@@ -1,38 +1,71 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 
 interface HeaderProps {
-    theme?: 'dark' | 'light';
-    showProgress?: boolean;
-    currentStep?: number;
-    totalSteps?: number;
+    theme: 'dark' | 'light';
+    stepLabel?: string; // e.g. "Step 4 of 5"
+    phases?: { id: string; title: string; href: string; active?: boolean }[];
 }
 
-const Header: React.FC<HeaderProps> = ({ theme = 'light', showProgress, currentStep, totalSteps }) => {
+const AccentureLogo: React.FC<{ dark?: boolean }> = ({ dark }) => (
+    <span className="accenture-wordmark" style={{ color: dark ? '#fff' : '#0a0a0a' }}>
+        accenture
+        <span className="accenture-wordmark-dot" />
+    </span>
+);
+
+const Header: React.FC<HeaderProps> = ({ theme, stepLabel, phases }) => {
     const isDark = theme === 'dark';
 
+    if (isDark) {
+        return (
+            <header className="cover-header">
+                <div className="cover-header-left">
+                    <Link href="/" style={{ textDecoration: 'none' }}>
+                        <AccentureLogo dark />
+                    </Link>
+                    <div className="cover-header-divider" />
+                    <span className="t-label" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                        Agentic AI&nbsp;&nbsp;|&nbsp;&nbsp;Insurance Broking
+                    </span>
+                </div>
+                <Link href="/journey" className="btn-primary" style={{ padding: '10px 26px', fontSize: '11px' }}>
+                    Explore Journey
+                </Link>
+            </header>
+        );
+    }
+
     return (
-        <header className={`w-full py-8 px-6 md:px-12 flex justify-between items-center z-50 ${isDark ? 'text-white' : 'text-black'}`}>
-            <div className="flex items-center gap-2">
-                <div className="font-bold text-xl tracking-tighter flex items-center">
-                    <span className={isDark ? "text-white" : "text-black"}>accenture</span>
-                </div>
+        <header className="journey-header">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexShrink: 0 }}>
+                <Link href="/" style={{ textDecoration: 'none' }}>
+                    <AccentureLogo />
+                </Link>
+                {stepLabel && (
+                    <>
+                        <div style={{ width: 1, height: 28, background: '#e0e0e0' }} />
+                        <span className="t-label" style={{ color: '#999' }}>{stepLabel}</span>
+                    </>
+                )}
             </div>
 
-            {showProgress && currentStep && totalSteps && (
-                <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-                    <span className="text-[10px] uppercase font-bold tracking-[0.3em] opacity-30 mb-1">Journey Progress</span>
-                    <div className="flex gap-1 text-[11px] font-bold">
-                        <span className="text-purple-600">STEP {currentStep}</span>
-                        <span className="opacity-20">/</span>
-                        <span className="opacity-40">{totalSteps}</span>
-                    </div>
-                </div>
-            )}
-
-            <div className="font-black text-lg tracking-widest uppercase italic opacity-80">
-                HOWDEN
+            <div className="journey-header-center">
+                <span>Agentic Insurance Broking</span>
             </div>
+
+            <nav className="journey-nav-phases" aria-label="Journey phases">
+                {(phases || []).map(p => (
+                    <Link
+                        key={p.id}
+                        href={p.href}
+                        className={`phase-pill ${p.active ? 'active' : ''}`}
+                    >
+                        {p.title}
+                    </Link>
+                ))}
+            </nav>
         </header>
     );
 };
