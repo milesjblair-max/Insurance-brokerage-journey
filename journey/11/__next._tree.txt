@@ -1,0 +1,3 @@
+:HL["/Insurance-brokerage-journey/_next/static/chunks/a9357d4ca243c221.css","style"]
+:HL["/Insurance-brokerage-journey/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"mrkRVJ48bXC9wBL3lbYK8","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"journey","paramType":null,"paramKey":"journey","hasRuntimePrefetch":false,"slots":{"children":{"name":"step","paramType":"d","paramKey":"11","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
