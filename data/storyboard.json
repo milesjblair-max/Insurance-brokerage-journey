@@ -1,0 +1,219 @@
+{
+  "brand": {
+    "name": "Howden",
+    "tagline": "AGENTIC AI • BROKING"
+  },
+  "hero": {
+    "title": "From Enquiry to Bind — in a Single Conversation",
+    "subtitle": "Experience the future of insurance broking where autonomous agents orchestrate complex placements with precision, speed, and complete human oversight."
+  },
+  "kpis": [
+    { "label": "Orchestrated steps", "value": "12" },
+    { "label": "Operational phases", "value": "4" },
+    { "label": "Time to Quote", "value": "< 10 min" },
+    { "label": "Rework reduction", "value": "95%" }
+  ],
+  "personas": [
+    {
+      "id": "client",
+      "name": "Client Lead",
+      "role": "Client — Risk Buyer",
+      "bullets": [
+        "Expects rapid response times",
+        "Demands full transparency on coverage",
+        "Focuses on data-driven risk insights"
+      ],
+      "avatar": "/avatars/client.png"
+    },
+    {
+      "id": "broker",
+      "name": "Lead Broker",
+      "role": "Broker — Placement Orchestrator",
+      "bullets": [
+        "Orchestrates high-touch market engagement",
+        "Ensures compliance across jurisdictions",
+        "Leverages AI for advisory depth"
+      ],
+      "avatar": "/avatars/broker.png"
+    }
+  ],
+  "phases": [
+    {
+      "id": "intake",
+      "title": "Intake & Qualification",
+      "steps": [
+        {
+          "id": "step-01",
+          "title": "Inbound enquiry captured",
+          "summary": "Client request arrives via email and is normalised into a structured submission.",
+          "agentActions": ["Parse email body and attachments", "Categorise risk type", "Extract key placement parameters"],
+          "humanOversight": ["Broker reviews extraction accuracy", "Confirms risk appetite match"],
+          "systems": ["CRM", "Email Gateway", "DMS"],
+          "dataIn": ["Inbound Email", "Policy Schedule PDF"],
+          "dataOut": ["Structured Data Object", "Initial Task List"],
+          "artifacts": [ { "type": "Submission Summary", "text": "Risk: D&O | Limit: £10M | Region: UK/EU" } ]
+        },
+        {
+          "id": "step-02",
+          "title": "Sanctions & KYC Screening",
+          "summary": "Automated compliance checks across global watchlists.",
+          "agentActions": ["Cross-reference entity names with D&B", "Run sanctions check", "Flag potential matches"],
+          "humanOversight": ["Compliance officer clears flags", "Final entity validation"],
+          "systems": ["Sanctions API", "D&B", "Internal Audit"],
+          "dataIn": ["Client Entity Details"],
+          "dataOut": ["KYC Report", "Compliance Score"],
+          "artifacts": [ { "type": "Compliance Certificate", "text": "No active sanctions found for 'Global Corporate Client'" } ]
+        },
+        {
+          "id": "step-03",
+          "title": "Appetite Routing",
+          "summary": "AI matches risk profile against carrier appetite and historical data.",
+          "agentActions": ["Analyse segment trends", "Identify top 5 matching carriers", "Draft routing rationale"],
+          "humanOversight": ["Broker confirms carrier panel", "Adjusts routing strategy"],
+          "systems": ["Market Appetite Engine", "Placement Data Hub"],
+          "dataIn": ["Risk Data", "Market Trends"],
+          "dataOut": ["Target Carrier List"],
+          "artifacts": [ { "type": "Routing Strategy", "text": "Targeting 3 Tier-1 Lloyd's Syndicates based on segment expertise." } ]
+        }
+      ]
+    },
+    {
+      "id": "placement",
+      "title": "Placement & Market Engagement",
+      "steps": [
+        {
+          "id": "step-04",
+          "title": "Submission Pack Generation",
+          "summary": "AI compiles all necessary data into a carrier-ready professional pack.",
+          "agentActions": ["Synthesize risk narrative", "Generate data visualizations", "Auto-fill carrier portals"],
+          "humanOversight": ["Quality control of narrative", "Final pack approval"],
+          "systems": ["GenAI Packager", "DMS"],
+          "dataIn": ["Extracted Risk Data"],
+          "dataOut": ["Submission PDF", "Portal Data Feed"],
+          "artifacts": [ { "type": "Submission Preview", "text": "24-page risk report generated with automated gap analysis." } ]
+        },
+        {
+          "id": "step-05",
+          "title": "Market Outreach & Drafting",
+          "summary": "Drafting personalized carrier communication for specific underwriting desks.",
+          "agentActions": ["Tailor cover notes", "Schedule delivery based on timezone", "Track outreach status"],
+          "humanOversight": ["Broker edits nuance in tone", "Personalizes carrier relationship"],
+          "systems": ["Engagement Hub", "CRM"],
+          "dataIn": ["Market Panel", "Submission Pack"],
+          "dataOut": ["Outbound Emails", "Underwriter Tasks"],
+          "artifacts": []
+        },
+        {
+          "id": "step-06",
+          "title": "Clarification Management",
+          "summary": "AI handles routine underwriter queries and coordinates data requests.",
+          "agentActions": ["Identify query patterns", "Retrieve missing data from DMS", "Draft responses for Broker"],
+          "humanOversight": ["Broker reviews complex answers", "Directs technical negotiation"],
+          "systems": ["QA Bot", "Knowledge Base"],
+          "dataIn": ["Underwriter Query"],
+          "dataOut": ["Fact-checked Response"],
+          "artifacts": [ { "type": "Query Log", "text": "4/5 routine questions resolved via AI retrieval." } ]
+        },
+        {
+          "id": "step-07",
+          "title": "Negotiation Orchestration",
+          "summary": "Real-time tracking of terms and conditions across the market panel.",
+          "agentActions": ["Compare T&Cs in real-time", "Highlight coverage gaps", "Predict best-case outcomes"],
+          "humanOversight": ["Lead Broker drives commercial negotiation", "Confirms final terms"],
+          "systems": ["Negotiation Workspace", "Analytics Engine"],
+          "dataIn": ["Draft Quotes"],
+          "dataOut": ["Optimized Terms Comparison"],
+          "artifacts": []
+        }
+      ]
+    },
+    {
+      "id": "quote",
+      "title": "Quote, Bind & Documentation",
+      "steps": [
+        {
+          "id": "step-08",
+          "title": "Quote Comparison Table",
+          "summary": "Automated side-by-side comparison of market responses.",
+          "agentActions": ["Extract data from various quote formats", "Normalise coverage terms", "Calculate total cost of risk"],
+          "humanOversight": ["Broker verifies comparison edge cases", "Client presentation review"],
+          "systems": ["Comparison Tool", "Analytics Hub"],
+          "dataIn": ["Carrier Quotes"],
+          "dataOut": ["Comparison Dashboard"],
+          "artifacts": [ { "type": "Comparison Extract", "text": "Carrier A: Better price | Carrier B: Superior wording on Clause 4." } ]
+        },
+        {
+          "id": "step-09",
+          "title": "Binding Selection",
+          "summary": "Client selects preferred option and AI triggers binding sequence.",
+          "agentActions": ["Capture client instruction", "Initiate bind request to carriers", "Confirm capacity"],
+          "humanOversight": ["Broker executes final bind authority", "Ensures contract certainty"],
+          "systems": ["Binding API", "E-Trading Portals"],
+          "dataIn": ["Client Selection"],
+          "dataOut": ["Bound Instruction"],
+          "artifacts": []
+        },
+        {
+          "id": "step-10",
+          "title": "Policy Documentation Pack",
+          "summary": "AI generates the complete post-bind documentation suite.",
+          "agentActions": ["Collate policy schedule", "Generate debit notes", "Assemble evidence of cover"],
+          "humanOversight": ["Operations check on document accuracy", "Signature verification"],
+          "systems": ["DocGen Engine", "ERP"],
+          "dataIn": ["Bound Quote Data"],
+          "dataOut": ["Final Policy Pack"],
+          "artifacts": [ { "type": "Evidence of Cover", "text": "Policy #ABC-12345 | Status: Bound" } ]
+        }
+      ]
+    },
+    {
+      "id": "insight",
+      "title": "Post-bind Service & Insight Loop",
+      "steps": [
+        {
+          "id": "step-11",
+          "title": "Claims Data Mapping",
+          "summary": "Continuous monitoring of claims activity for future placement insight.",
+          "agentActions": ["Scan claims notifications", "Identify loss trends", "Update risk profile"],
+          "humanOversight": ["Claims Advocate validates trends", "Advisory team review"],
+          "systems": ["Claims Platform", "Insight DB"],
+          "dataIn": ["Claims Feed"],
+          "dataOut": ["Risk Advisory Trends"],
+          "artifacts": []
+        },
+        {
+          "id": "step-12",
+          "title": "Renewal Advisory Loop",
+          "summary": "AI prepares renewal roadmap 90 days out based on annual data flow.",
+          "agentActions": ["Aggregate performance metrics", "Draft renewal strategy", "Suggest cross-sell opportunities"],
+          "humanOversight": ["Renewal Lead approves roadmap", "Client strategy session"],
+          "systems": ["Predictive Analytics", "CRM"],
+          "dataIn": ["Full-year Data"],
+          "dataOut": ["Renewal Strategy Document"],
+          "artifacts": [ { "type": "Renewal Briefing", "text": "Recommended 10% limit increase due to asset growth." } ]
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    { "title": "Intake & Triage", "description": "Automated normalisation of unstructured risk data into actionable placement intelligence." },
+    { "title": "Placement Orchestration", "description": "Streamlining market engagement through AI-assisted packager and query management." },
+    { "title": "Claims Advisory Loop", "description": "Real-time loss insight feeding back into proactive risk management and renewal strategy." },
+    { "title": "Renewals & Cross-sell", "description": "Predictive analytics identifying coverage gaps and renewal opportunities 90 days ahead." },
+    { "title": "Compliance & KYC", "description": "Frictionless global screening ensuring every placement meets strict regulatory standards." }
+  ],
+  "architecture": {
+    "layers": [
+      { "name": "Engagement Channels", "items": ["Client Portal", "Underwriter Email", "Mobile App"] },
+      { "name": "Operational Platform", "items": ["Novidea Broking Platform", "Salesforce CRM", "DMS"] },
+      { "name": "Agentic Orchestration", "items": ["Agentic AI Service", "LLM reasoning", "Task Orchestrator"] },
+      { "name": "Data & Integrity", "items": ["Data Lakehouse", "Audit Trails", "Sanctions APIs"] }
+    ]
+  },
+  "governance": [
+    { "title": "Full Auditability", "description": "Every agent action and human intervention is logged with a timestamp and immutable record." },
+    { "title": "Human-in-the-Loop", "description": "Strategic gates requiring explicit expert approval before proceeding to high-stakes steps." },
+    { "title": "Data Lineage", "description": "Track the origin and transformation of every data point from intake to documentation." },
+    { "title": "Model Guardrails", "description": "Strict prompt engineering and validation layers to prevent hallucination and ensure policy adherence." }
+  ]
+}
